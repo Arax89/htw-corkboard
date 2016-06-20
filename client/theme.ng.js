@@ -5,4 +5,8 @@ angular.module('corkboardApp')
   $mdThemingProvider.theme('default')
   .primaryPalette('blue')
   .accentPalette('amber');
+})
+.config(function($mdIconProvider){
+  $mdIconProvider
+    .icon('pin','pinIcon.svg')
 });
