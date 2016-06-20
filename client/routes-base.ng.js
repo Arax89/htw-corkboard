@@ -11,7 +11,7 @@ angular.module('corkboardApp')
       case 'AUTH_REQUIRED':
       case 'FORBIDDEN':
       case 'UNAUTHORIZED':
-        $state.go('main');
+        $state.go('login');
         break;
     }
   });
