@@ -1,5 +1,6 @@
 angular.module('corkboardApp', [
   'angular-meteor',
+  require('angular-messages'),
   'ui.router',
   'ngMaterial',
   'angularUtils.directives.dirPagination',
@@ -9,7 +10,7 @@ angular.module('corkboardApp', [
 onReady = function() {
   angular.bootstrap(document, ['corkboardApp']);
 };
-  
+
 if(Meteor.isCordova) {
   angular.element(document).on('deviceready', onReady);
 } else {

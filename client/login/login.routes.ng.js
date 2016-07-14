@@ -2,15 +2,21 @@
 
 angular.module('corkboardApp')
 .config(function($stateProvider) {
-  $stateProvider
-  .state('login', {
-    url: '/login',
-    controller: 'LoginCtrl',
-    templateUrl: 'client/login/login.view.ng.html'
-  })
-  .state('register', {
+  var login = {
+      name: 'login',
+      url: '/',
+      templateUrl: 'client/login/login.view.ng.html',
+      controller: 'LoginCtrl'
+  },
+  register = {
+    name: 'register',
     url: '/register',
-    controller: 'RegCtrl',
-    templateUrl: 'client/login/register.view.ng.html'
-  });
-});
+    templateUrl: 'client/login/register.view.ng.html',
+    controller: 'RegCtrl'
+  };
+  $stateProvider.state(login);
+  $stateProvider.state(register);
+})
+.run(['$state', function($state){
+  $state.transitionTo('login');
+}]);
