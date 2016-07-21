@@ -1,7 +1,6 @@
 import angular from 'angular';
 import angularMeteor from 'angular-meteor';
 import uiRouter from 'angular-ui-router';
-import ngMaterial from 'angular-material';
 import ngMessages from  'angular-messages';
 
 import { Meteor } from 'meteor/meteor';
@@ -12,7 +11,6 @@ const name = 'login';
 
 export default angular.module(name, [
   angularMeteor,
-  ngMaterial,
   ngMessages,
   uiRouter
 ])
@@ -21,8 +19,8 @@ export default angular.module(name, [
 
 
     $scope.credentials = {
-      email: 'test@test.de',
-      password: '123456'
+      email: '',
+      password: ''
     };
 
     $scope.error = '';

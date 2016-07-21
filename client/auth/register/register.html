@@ -1,1 +1,44 @@
-<p>register working</p>
+<div layout="column" layout-align="center center" layout-fill="layout-fill" class="loginBackground" ng-controller="registerCtrl">
+  <div layout="column" class="loginBox md-whiteframe-14dp">
+      <md-toolbar class="loginBoxHeader" layout="row" layout-align="center center">
+        <span><md-icon md-svg-icon="pin" style="width:96px; height:96px;"></md-icon><h1 class="md-display-2">Corkboard</h1></span>
+      </md-toolbar>
+      <md-content  layout="column" class="md-padding">
+        <form name="loginForm">
+          <md-input-container class="md-block">
+            <label>Username</label>
+            <input required type="username" name="username" ng-model="credentials.username" minlength="1" maxlength="20">
+            <div ng-messages="loginForm.username.$error" role="alert">
+              <div ng-message-exp="['required', 'minlength', 'maxlength']">
+                Der Username muss 1-20 Zeichen lang sein.
+              </div>
+            </div>
+          </md-input-container>
+        <md-input-container class="md-block">
+          <label>Email</label>
+          <input required type="email" name="email" ng-model="credentials.email" ng-pattern="/^.+@.+\..+$/" minlength="6" maxlength="100">
+          <div ng-messages="loginForm.email.$error" role="alert">
+            <div ng-message-exp="['required', 'minlength', 'maxlength', 'pattern']">
+              Die eMail-Adresse muss 6-100 Zeichen lang sein.
+            </div>
+          </div>
+        </md-input-container>
+        <md-input-container class="md-block">
+          <label>Passwort</label>
+          <input required type="password" name="password" ng-model="credentials.password" minlength="6"/>
+          <div ng-messages="loginForm.password.$error" role="alert">
+            <div ng-message-exp="['required', 'minlength']">
+              Das Passwort muss mindestens 6 Zeichen lang sein.
+            </div>
+          </div>
+        </md-input-container>
+      </form>
+      <md-toolbar ng-show="error" class="md-warn" layout="row" layout-fill layout-padding layout-margin>
+        <p class="md-body-1"> {{ error }} </p>
+      </md-toolbar>
+        <md-button class="md-raised md-primary" ng-click="register()" ng-disabled="loginForm.$invalid">Registrieren</md-button>
+        <md-button ui-sref="login" md-no-ink="md-no-ink">Login</md-button>
+        <a class="md-button" href="" >Passwort vergessen?</a>
+      </md-content>
+    </div>
+</div>

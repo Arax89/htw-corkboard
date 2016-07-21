@@ -1,1 +1,10 @@
-<p> board logged in</p>
+<div ng-controller="boardCtrl">
+  <p> board logged in as {{ user }}</p>
+  <md-button class="md-raised" md-no-ink="false" ng-click="logout()"  md-ripple-size="full">logout</md-button>
+</div>
+
+<div id="container" ng-controller="CorkBoardCtrl">
+    <div class="shape" id="left" ng-draggable='dragOptions'></div>
+    <div class="shape" id="center" ng-draggable='dragOptions'></div>
+    <div class="shape" id="right" ng-draggable='dragOptions'></div>
+</div>
